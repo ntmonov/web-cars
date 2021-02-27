@@ -1,0 +1,17 @@
+<div class="form-container">
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="input-item">
+      <p>Email*:</p>
+      <input type="email" formControlName="email">
+      <p *ngIf="email.dirty && email.invalid">Not a valid email</p>
+    </div>
+    <div class="input-item">
+      <p>Password*:</p>
+      <input type="password" formControlName="password">
+      <p *ngIf="password.dirty && password.invalid">Not a valid password</p>
+    </div>
+    <input class="btn" type="submit" value="SignUp" [disabled]="registerForm.invalid">
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <a [routerLink]="['/login']">Have an account?</a>
+  </form>
+</div>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cars-app-60bc5": {
+      "hosting": {
+        "web-cars": [
+          "cars-app-60bc5"
+        ]
+      }
+    }
+  }
+}
