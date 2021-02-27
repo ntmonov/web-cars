@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class LoginFormComponent {
 
   public errorMessage = '';
 
-  constructor(private auth: AngularFireAuth) {
+  constructor(private auth: AngularFireAuth,
+              private router: Router) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
@@ -22,7 +24,7 @@ export class LoginFormComponent {
 
   login(): void {
     this.auth.signInWithEmailAndPassword(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value)
-      .then(res => console.log(res))
+      .then(res => this.router.navigate(['/home']))
       .catch(err => {
         this.errorMessage = err.message;
         this.loginForm.reset()

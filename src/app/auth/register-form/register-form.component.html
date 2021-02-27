@@ -1,3 +1,4 @@
+<div class="container">
 <div class="form-container">
   <form [formGroup]="registerForm" (ngSubmit)="register()">
     <div class="input-item">
@@ -14,4 +15,5 @@
     <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
     <a [routerLink]="['/login']">Have an account?</a>
   </form>
+</div>
 </div>
